@@ -43,7 +43,7 @@ public class PrintParamsServlet extends HttpServlet {
             default:
                 writer.print("ERROR");
         }
-        writer.print("<h1>" + result + "</h1>");
+        writer.print("<h1>Результат: " + result + "</h1>");
 
     }
 }
