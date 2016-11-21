@@ -1,13 +1,13 @@
 package ru.ncedu.webapp.servlets;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.Map;
 
 public class PrintParamsServlet extends HttpServlet {
 
@@ -21,7 +21,7 @@ public class PrintParamsServlet extends HttpServlet {
         process(req, resp);
     }
 
-    private void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         PrintWriter writer = response.getWriter();
         double result = 0;
         double number1 = Double.parseDouble(request.getParameter("number1"));
@@ -43,7 +43,8 @@ public class PrintParamsServlet extends HttpServlet {
             default:
                 writer.print("ERROR");
         }
-        writer.print("<h1>Результат: " + result + "</h1>");
+
+        this.getServletContext().getRequestDispatcher("/result.jsp?result=" + result).forward(request, response);
 
     }
 }
