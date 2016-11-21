@@ -23,9 +23,27 @@ public class PrintParamsServlet extends HttpServlet {
 
     private void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter writer = response.getWriter();
-        Map<String, String[]> params = request.getParameterMap();
-        for (String key : params.keySet()) {
-            writer.println(key + ": " + Arrays.toString(params.get(key)));
+        double result = 0;
+        double number1 = Double.parseDouble(request.getParameter("number1"));
+        double number2 = Double.parseDouble(request.getParameter("number2"));
+        int action = Integer.parseInt(request.getParameter("action"));
+        switch (action) {
+            case 1:
+                result = number1 + number2;
+                break;
+            case 2:
+                result = number1 - number2;
+                break;
+            case 3:
+                result = number1 * number2;
+                break;
+            case 4:
+                result = number1 / number2;
+                break;
+            default:
+                writer.print("ERROR");
         }
+        writer.print("<h1>" + result + "</h1>");
+
     }
 }
