@@ -46,14 +46,18 @@ public class PrintParamsServlet extends HttpServlet {
             calcRequest.setAttribute("result", result);
             calcRequest.getRequestDispatcher("/result.jsp").forward(calcRequest, calcResponse);
         } catch (NumberFormatException e) {
-            String errors = "Number is empty";
-            calcRequest.setAttribute("errors", errors);
-            calcRequest.getRequestDispatcher("/errors.jsp").forward(calcRequest, calcResponse);
+            String error = "Number is empty";
+            errors(error, calcRequest, calcResponse);
+
         } catch (ServletException e) {
-            String errors = "Errors on Servlet";
-            calcRequest.setAttribute("errors", errors);
-            calcRequest.getRequestDispatcher("/errors.jsp").forward(calcRequest, calcResponse);
+            String error = "Errors on Servlet";
+            errors(error, calcRequest, calcResponse);
         }
 
+    }
+
+    private void errors(String error ,HttpServletRequest errRequest, HttpServletResponse errResponse) throws ServletException, IOException {
+        errRequest.setAttribute("errors", error);
+        errRequest.getRequestDispatcher("/errors.jsp").forward(errRequest, errResponse);
     }
 }
