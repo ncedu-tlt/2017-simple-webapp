@@ -26,6 +26,6 @@ public class PrintParamsServlet extends HttpServlet {
         Map<String, String[]> params = request.getParameterMap();
         for (String key : params.keySet()) {
             writer.println(key + ": " + Arrays.toString(params.get(key)));
-        }
+    }
     }
 }
