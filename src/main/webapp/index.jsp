@@ -1,8 +1,14 @@
 <html>
     <body>
-        <h2>Hello World!</h2>
-        <form action="handler.jsp" method="post">
-            <input type="text" name="text"/>
+        <form action="calc" method="post">
+            <label> First numb </label>
+            <input type="text" name="x"/>
+            <br/>
+            +
+            <br/>
+            <label> Second numb</label>
+            <input type="text" name="y"/>
+            <br/>
             <button type="submit">Submit</button>
             <button type="reset">Clear</button>
         </form>
