@@ -1,9 +1,8 @@
 <html>
     <body>
-        <h2>Hello World!</h2>
-        <form action="handler.jsp" method="post">
-            <input type="text" name="text"/>
-            <button type="submit">Submit</button>
+        <form action="${pageContext.request.contextPath}/calculate" method="post">
+            <input name="value" type="text"/>
+            <button type="submit">Calculate</button>
             <button type="reset">Clear</button>
         </form>
     </body>
