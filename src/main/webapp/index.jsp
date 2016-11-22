@@ -3,7 +3,7 @@
 <body>
 <h2>Calculator!</h2>
 
-<form action="printParams" method="get">
+<form action="${pageContext.request.contextPath}/calculate" method="post">
     <input type="text" name="number1"/>
     <input type="text" name="number2"/>
     <div>
