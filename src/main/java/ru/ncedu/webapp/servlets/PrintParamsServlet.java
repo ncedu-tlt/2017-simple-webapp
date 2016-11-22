@@ -25,26 +25,32 @@ public class PrintParamsServlet extends HttpServlet {
 
             double num1 = Double.parseDouble(calcRequest.getParameter("text1"));
             double num2 = Double.parseDouble(calcRequest.getParameter("text2"));
+            double result = 0;
             if (calcRequest.getParameter("sum") != null) {
-                calcWriter.println("<h1>Sum</h1>" + (num1 + num2));
+                result = num1 + num2;
             }
             if (calcRequest.getParameter("dif") != null) {
-                calcWriter.println("<h1>Difference</h1>" + (num1 - num2));
+                result = num1 - num2;
             }
             if (calcRequest.getParameter("mul") != null) {
-                calcWriter.println("<h1>Multiplication</h1>" + (num1 * num2));
+                result = num1 * num2;
             }
             if (calcRequest.getParameter("div") != null) {
-                calcWriter.println("<h1>Division</h1>" + (num1 / num2));
+                result = num1 / num2;
             }
             if (calcRequest.getParameter("pow") != null) {
-                calcWriter.println("<h1>Involution</h1>" + (Math.pow(num1, num2)));
+                result = Math.pow(num1, num2);
             }
             if (calcRequest.getParameter("sqrt") != null) {
-                calcWriter.println("<h1>Square</h1>" + (Math.sqrt(num1)));
+                result = Math.sqrt(num1);
             }
+            calcRequest.setAttribute("result", result);
+            calcRequest.getRequestDispatcher("/result.jsp").forward(calcRequest, calcResponse);
         } catch (NumberFormatException e) {
             calcWriter.println("<h1>Error</h1>" + "Number is empty");
+        } catch (ServletException e) {
+            e.printStackTrace();
         }
+
     }
 }

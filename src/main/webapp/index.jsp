@@ -25,8 +25,7 @@
         <br/>
         <input type="submit" name="sqrt" value="&radic;"/>
         <br/>
-        </ul>
-
+    </ul>
 
 </form>
 </body>
