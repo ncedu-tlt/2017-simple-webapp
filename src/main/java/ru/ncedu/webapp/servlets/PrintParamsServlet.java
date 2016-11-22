@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class PrintParamsServlet extends HttpServlet {
 
@@ -20,7 +19,6 @@ public class PrintParamsServlet extends HttpServlet {
     }
 
     private void calc(HttpServletRequest calcRequest, HttpServletResponse calcResponse) throws IOException, ServletException {
-        PrintWriter calcWriter = calcResponse.getWriter();
         try {
 
             double num1 = Double.parseDouble(calcRequest.getParameter("text1"));
