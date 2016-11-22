@@ -19,13 +19,14 @@ public class PrintParamsServlet extends HttpServlet {
         calc(req, resp);
     }
 
-    private void calc(HttpServletRequest calcRequest, HttpServletResponse calcResponse) throws IOException {
+    private void calc(HttpServletRequest calcRequest, HttpServletResponse calcResponse) throws IOException, ServletException {
         PrintWriter calcWriter = calcResponse.getWriter();
         try {
 
             double num1 = Double.parseDouble(calcRequest.getParameter("text1"));
             double num2 = Double.parseDouble(calcRequest.getParameter("text2"));
             double result = 0;
+
             if (calcRequest.getParameter("sum") != null) {
                 result = num1 + num2;
             }
@@ -47,9 +48,13 @@ public class PrintParamsServlet extends HttpServlet {
             calcRequest.setAttribute("result", result);
             calcRequest.getRequestDispatcher("/result.jsp").forward(calcRequest, calcResponse);
         } catch (NumberFormatException e) {
-            calcWriter.println("<h1>Error</h1>" + "Number is empty");
+            String errors = "Number is empty";
+            calcRequest.setAttribute("errors", errors);
+            calcRequest.getRequestDispatcher("/errors.jsp").forward(calcRequest, calcResponse);
         } catch (ServletException e) {
-            e.printStackTrace();
+            String errors = "Errors on Servlet";
+            calcRequest.setAttribute("errors", errors);
+            calcRequest.getRequestDispatcher("/errors.jsp").forward(calcRequest, calcResponse);
         }
 
     }

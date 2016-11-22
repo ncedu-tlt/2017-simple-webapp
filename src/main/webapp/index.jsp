@@ -2,6 +2,8 @@
 <body>
 <h2>Calculator</h2>
 <form action="printParams" method="get">
+    <link rel="nav" type="text/css" href="/main.css" media="screen" />
+    <link rel="button" type="text/css" href="/button.css" media="screen" />
     <label>First number (a)</label>
     <input type="text" name="text1" value="0"/>
     <br/>
@@ -12,19 +14,15 @@
     <button type="reset">Clear</button>
     <br/>
     <br/>
-    <ul id=#nav>
+    <ul id=nav>
+        <li>
         <input type="submit" name="sum" value="+"/>
-        <br/>
         <input type="submit" name="dif" value="-"/>
-        <br/>
         <input type="submit" name="mul" value="*"/>
-        <br/>
         <input type="submit" name="div" value="/"/>
-        <br/>
         <input type="submit" name="pow" value="a^b"/>
-        <br/>
         <input type="submit" name="sqrt" value="&radic;"/>
-        <br/>
+        </li>
     </ul>
 
 </form>
