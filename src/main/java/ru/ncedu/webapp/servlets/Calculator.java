@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class Calculator extends HttpServlet {
 
@@ -17,28 +16,37 @@ public class Calculator extends HttpServlet {
 
     private void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-
-        PrintWriter writer = response.getWriter();
         try {
-
-
             long numForFactorial = Long.parseLong(request.getParameter("text"));
             long result = factorial(numForFactorial);
 
-            this.getServletContext().getRequestDispatcher("/handler.jsp?result=" + result).forward(request, response);
-
+            request.setAttribute("result", result);
+            request.getRequestDispatcher("/handler.jsp").forward(request, response);
         } catch (NumberFormatException e) {
-            writer.println("<h1>Error: </h1> <p>Number is empty <p>");
+            String error = "Number is empty.";
+            errors(error, request, response);
         } catch (ServletException e) {
-            writer.println("<h1>Error in server </h1>" );
+            String error = "Error in the server";
+            errors(error, request, response);
         }
 
 
     }
 
-    public static long factorial(long n) {
+    private long factorial(long n) {
         if (n == 0) return 1;
         return n * factorial(n - 1);
+    }
+
+    private void errors(String error, HttpServletRequest errRequest, HttpServletResponse errResponse) {
+        errRequest.setAttribute("errors", error);
+        try {
+            errRequest.getRequestDispatcher("/error.jsp").forward(errRequest, errResponse);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

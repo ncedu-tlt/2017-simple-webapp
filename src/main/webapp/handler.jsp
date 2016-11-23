@@ -5,6 +5,6 @@
 </head>
 <body>
     <h1>This is handler page!</h1>
-    <H2>Factorial: <%=  request.getParameter("result")%></H2>
+    <H2>Factorial: <%=  request.getAttribute("result")%></H2>
 </body>
 </html>

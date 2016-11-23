@@ -1,7 +1,7 @@
 <html>
 <body>
 <h2>Factorial</h2>
-<form action="calculator" method="post">
+<form action="calc" method="post">
     <label> Enter number for factorial:</label>
     <input type="text" name="text"/>
 
