@@ -1,13 +1,16 @@
-#nav{
+#nav {
     width: 100%;
     float: left;
     margin: 0 0 3em 0;
     padding: 0;
-    list-style: none; }
-#nav li {
-    float: left; }
+    list-style: none;
+}
 
-#nav a.button{
+#nav li {
+    float: left;
+}
+
+#nav button {
     display: inline-block;
     color: white;
     text-decoration: none;
@@ -20,5 +23,24 @@
     background: linear-gradient(#F3AE0F, #E38916) #E38916;
     transition: 0.2s;
 }
-a.button:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
-a.button:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }
+
+#nav button:hover {
+    background: linear-gradient(#f5ae00, #f59500) #f5ae00;
+}
+
+#nav button:active {
+    background: linear-gradient(#f59500, #f5ae00) #f59500;
+}
+
+div.wrapper {
+    width: 400px;
+    margin: 0 auto;
+}
+
+div.box {
+    background: goldenrod;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10%;
+    padding-bottom: 20%;
+}
