@@ -7,13 +7,13 @@
     <display-name>Sample Web Application</display-name>
 
     <servlet>
-        <servlet-name>printParams</servlet-name>
-        <servlet-class>ru.ncedu.webapp.servlets.PrintParamsServlet</servlet-class>
+        <servlet-name>calculator</servlet-name>
+        <servlet-class>ru.ncedu.webapp.servlets.Calculator</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>printParams</servlet-name>
-        <url-pattern>/printParams</url-pattern>
+        <servlet-name>calculator</servlet-name>
+        <url-pattern>/calc</url-pattern>
     </servlet-mapping>
 
 </web-app>
