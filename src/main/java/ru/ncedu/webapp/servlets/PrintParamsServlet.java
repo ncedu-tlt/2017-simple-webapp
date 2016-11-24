@@ -1,14 +1,14 @@
 package ru.ncedu.webapp.servlets;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.Map;
 
+
+@WebServlet("/calc")
 public class PrintParamsServlet extends HttpServlet {
 
     @Override
@@ -21,11 +21,33 @@ public class PrintParamsServlet extends HttpServlet {
         process(req, resp);
     }
 
-    private void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        PrintWriter writer = response.getWriter();
-        Map<String, String[]> params = request.getParameterMap();
-        for (String key : params.keySet()) {
-            writer.println(key + ": " + Arrays.toString(params.get(key)));
+    private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            double number1 = Double.parseDouble(request.getParameter("number1"));
+            double number2 = Double.parseDouble(request.getParameter("number2"));
+            double result = minus(number1, number2);
+            request.setAttribute("Result", result);
+
+            request.getRequestDispatcher("/result.jsp").forward(request, response);
+
+
+        } catch (ServletException e) {
+            e.printStackTrace();
+            String error = "error";
+            request.setAttribute("Error", error);
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+
+            String error = "NumberFormatException";
+            request.setAttribute("NumberFormatException", error);
+            request.getRequestDispatcher("/numberFormatException.jsp").forward(request, response);
+
         }
+    }
+
+    private double minus(double number1, double number2) {
+        return number1 - number2;
     }
 }
