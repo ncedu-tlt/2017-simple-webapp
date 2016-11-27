@@ -1,4 +1,4 @@
-package ru.ncedu.webapp.servlets;
+package servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
