@@ -1,4 +1,4 @@
-package models;
+package ru.ncedu.webapp.models;
 
 
 public class Product {

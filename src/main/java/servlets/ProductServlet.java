@@ -1,6 +1,7 @@
 package servlets;
 
-import models.Product;
+
+import ru.ncedu.webapp.models.Product;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
