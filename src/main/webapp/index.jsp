@@ -11,8 +11,8 @@
     <title>Main menu</title></head>
 <body>
 <form action="/mainMenu" method="post">
-<button type="submit" name="calc" >Calculator</button>
-<button type="submit" name="dbase">Data Base</button>
+<button type="submit" name="choice" value="calc">Calculator</button>
+<button type="submit" name="choice" value="price">Data Base Price</button>
 </form>
 </body>
 </html>

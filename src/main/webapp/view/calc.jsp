@@ -18,7 +18,6 @@
             <br/>
             <br/>
             <ul id=nav>
-
                 <li>
                     <button type="submit" name="operation" value="sum">+</button>
                     <button type="submit" name="operation" value="dif">-</button>

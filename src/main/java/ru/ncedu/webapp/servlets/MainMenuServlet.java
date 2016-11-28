@@ -21,10 +21,17 @@ public class MainMenuServlet extends HttpServlet {
     }
 
     private void mainMenu(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if(request.getParameter("calc")!=null){
-            request.getRequestDispatcher("view/calc.jsp").forward(request, response);
-        }else if (request.getParameter("dbase")!=null) {
-                request.getRequestDispatcher("view/dbase.jsp").forward(request,response);
+        String choice = String.valueOf(request.getParameter("choice"));
+        switch (choice){
+            case "calc":
+                request.getRequestDispatcher("/view/calc.jsp").forward(request,response);
+                break;
+            case "price":
+                request.getRequestDispatcher("/price").forward(request,response);
+                break;
         }
+        /*if (request.getParameter("price")!=null) {
+
+        }*/
     }
 }
