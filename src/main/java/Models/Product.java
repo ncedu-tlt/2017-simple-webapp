@@ -7,7 +7,8 @@ public class Product {
     private long categoryId;
     private String description;
 
-    public Product() {}
+    public Product() {
+    }
 
     public Product(long id) {
         this.id = id;
@@ -23,6 +24,7 @@ public class Product {
         this.name = name;
         this.categoryId = categoryId;
     }
+
     public Product(long categoryId, String name, String description) {
         this.categoryId = categoryId;
         this.name = name;
@@ -72,3 +74,4 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+}

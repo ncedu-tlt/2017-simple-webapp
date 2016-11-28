@@ -31,8 +31,6 @@ public class Calculator extends HttpServlet {
             String error = "Error in the server";
             errors(error, request, response);
         }
-
-
     }
 
     private long factorial(long n) {
