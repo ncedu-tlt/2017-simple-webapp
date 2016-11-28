@@ -8,7 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="q" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -16,10 +16,9 @@
 </head>
 <body>
 
-    Size: ${requestScope.} <br>
-
+    Size: ${requestScope.size} <br>
     Characteristics <br>
-    <q:forEach items="${requestScope.characteristics}" var="characteristic">
+    <c:forEach items="${requestScope.characteristics}" var="characteristic">
         <table>
             <tr>
                 <td> ${characteristic.id} </td>
@@ -28,7 +27,7 @@
                 <td> ${characteristic.categoryId} </td>
             </tr>
         </table>
-    </q:forEach>
+    </c:forEach>
 
     <br>
     <br>
