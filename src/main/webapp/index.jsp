@@ -9,10 +9,13 @@
 <html>
 <head>
     <title>Main menu</title></head>
+    <link rel="stylesheet" type="text/css" href="/style/button.css" media="screen"/>
 <body>
 <form action="/mainMenu" method="post">
-<button type="submit" name="choice" value="calc">Calculator</button>
-<button type="submit" name="choice" value="price">Data Base Price</button>
+    <div>
+    <button type="submit" name="choice" value="calc" cl>Calculator</button>
+    <button type="submit" name="choice" value="price">Data Base Price</button>
+    </div>
 </form>
 </body>
 </html>
