@@ -40,7 +40,7 @@ public class CharacteristicGroupServlet extends HttpServlet {
             Connection connection = ds.getConnection();
 
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select id, name, orderNumber from characteristicGroup");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM public.\"characteristicGroup\"");
             while (rs.next()) {
                 CharacteristicGroup characteristicGroup = new CharacteristicGroup();
                 characteristicGroup.setId(rs.getInt("id"));
