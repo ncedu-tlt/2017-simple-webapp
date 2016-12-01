@@ -29,6 +29,7 @@ public class CategoryServlet extends HttpServlet {
         List<Category> categories = new ArrayList<>();
 
         Statement stmt = null;
+        Connection connection = null;
         try {
             InitialContext cxt = new InitialContext();
             // https://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html
@@ -38,7 +39,7 @@ public class CategoryServlet extends HttpServlet {
                 throw new RuntimeException("Data source not found!");
             }
 
-            Connection connection = ds.getConnection();
+            connection = ds.getConnection();
 
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("select id, name, description from category");
@@ -58,6 +59,12 @@ public class CategoryServlet extends HttpServlet {
             if (stmt != null) {
                 try {
                     stmt.close();
+                } catch (SQLException ignored) {
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
                 } catch (SQLException ignored) {
                 }
             }
