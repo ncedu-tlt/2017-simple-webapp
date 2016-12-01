@@ -44,11 +44,11 @@ public class PriceServlet extends HttpServlet {
             Connection connection = dataSource.getConnection();
 
             statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT marketid, productid, price FROM price");
+            ResultSet resultSet = statement.executeQuery("SELECT market_id, product_id, price FROM price");
             while (resultSet.next()){
                 Price price = new Price();
-                price.setMarketId(resultSet.getLong("marketId"));
-                price.setProductId(resultSet.getLong("productId"));
+                price.setMarketId(resultSet.getLong("market_id"));
+                price.setProductId(resultSet.getLong("product_id"));
                 price.setPrice(resultSet.getBigDecimal("price"));
 
                 prices.add(price);
