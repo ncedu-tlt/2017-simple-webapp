@@ -5,10 +5,6 @@
     <title>Error</title>
 </head>
 <body>
-    <h1> Warning! Error!
-        <%=
-        request.getAttribute("Error")
-        %>
-    </h1>
+        ${requestScope.errorMsg}
 </body>
 </html>

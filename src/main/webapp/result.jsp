@@ -5,10 +5,6 @@
     <title>Result</title>
 </head>
 <body>
-    <h3> Result:
-        <%=
-        request.getAttribute("Result")
-        %>
-    </h3>
+        ${requestScope.result}
 </body>
 </html>

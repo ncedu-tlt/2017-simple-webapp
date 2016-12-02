@@ -22,6 +22,8 @@ public class PrintParamsServlet extends HttpServlet {
     }
 
     private void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+
         double result = 0;
         try {
             double number1 = Double.parseDouble(request.getParameter("number1"));
