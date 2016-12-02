@@ -1,7 +1,4 @@
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>--%>
-<%@ page import="ru.ncedu.webapp.models.CharacteristicValue" %>
-<%@ page import="java.util.List" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Alexander
@@ -46,23 +43,13 @@
     </tr>
     </thead>
     <tbody>
-
-    <%
-        List<CharacteristicValue> characteristicValues = (List<CharacteristicValue>) request.getAttribute("characteristicValue");
-        for(CharacteristicValue characteristicValue : characteristicValues) {
-    %>
-    <tr>
-        <td><%=characteristicValue.getCharacteristicId()%></td>
-        <td><%=characteristicValue.getProductId()%></td>
-        <td><%=characteristicValue.getValue()%></td>
-    </tr>
-    <%
-        }
-    %>
-        <%--<c:forEach items="${requestScope.characteristicValue}" var="characteristicValue">--%>
-            <%--${characteristicValue.characteristic_id}, ${characteristicValue.product_id}, ${characteristicValue.value}--%>
-        <%--</c:forEach>--%>
-
+    <c:forEach items="${requestScope.characteristicValue}" var="characteristicValue">
+        <tr>
+            <td>${characteristicValue.characteristicId}</td>
+            <td>${characteristicValue.productId}</td>
+            <td>${characteristicValue.value}</td>
+        </tr>
+    </c:forEach>
     <tr>
         <td colspan="3">
             Size: ${requestScope.size}
