@@ -4,7 +4,7 @@
 <body>
 
     <a href="${pageContext.request.contextPath}/calculator.jsp">Calculator</a> <br>
-    <a href="${pageContext.request.contextPath}/markets.jsp">Market</a>
+    <a href="${pageContext.request.contextPath}/market">Market</a>
 
 </body>
 </html>

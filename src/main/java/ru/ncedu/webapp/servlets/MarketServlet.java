@@ -44,7 +44,7 @@ public class MarketServlet extends HttpServlet {
             connection = ds.getConnection();
             stmt = connection.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT id, name from market");
+            ResultSet rs = stmt.executeQuery("SELECT id, name FROM market");
             while (rs.next()) {
                 Market market = new Market();
                 market.setId(rs.getInt("id"));
